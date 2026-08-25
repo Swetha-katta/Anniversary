@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Surprise For You ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #fff8f6;
+        }
+
+        /* FIRST PAGE */
+
+        .surprise-page {
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(circle at top, #ffffff, #f8e5e2);
+
+            position: relative;
+        }
+
+
+        .content {
+
+            position: relative;
+            z-index: 5;
+
+            padding: 30px;
+        }
+
+
+        .small-text {
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+
+            color: #80676a;
+
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
+        }
+
+
+        .main-title {
+
+            font-size: clamp(45px, 8vw, 95px);
+
+            font-weight: normal;
+
+            color: #493b3e;
+
+            line-height: 1.1;
+
+            margin-bottom: 20px;
+        }
+
+
+        .heart {
+
+            font-size: 55px;
+
+            color: #b87578;
+
+            margin-bottom: 25px;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        .sub-text {
+
+            font-size: 20px;
+
+            color: #756568;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* BUTTON */
+
+        .click-button {
+
+            border: none;
+
+            background: #a96c70;
+
+            color: white;
+
+            padding: 17px 45px;
+
+            border-radius: 50px;
+
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(120, 70, 70, 0.25);
+
+            transition: all 0.3s ease;
+        }
+
+
+        .click-button:hover {
+
+            transform: scale(1.08);
+
+            background: #8f5b60;
+
+            box-shadow: 0 12px 30px rgba(120, 70, 70, 0.35);
+        }
+
+
+        /* SMALL DECORATIONS */
+
+        .decor {
+
+            position: absolute;
+
+            font-size: 30px;
+
+            opacity: 0.45;
+        }
+
+
+        .decor1 {
+            top: 15%;
+            left: 12%;
+        }
+
+
+        .decor2 {
+            top: 25%;
+            right: 12%;
+        }
+
+
+        .decor3 {
+            bottom: 15%;
+            left: 18%;
+        }
+
+
+        .decor4 {
+            bottom: 20%;
+            right: 18%;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .main-title {
+                font-size: 48px;
+            }
+
+            .small-text {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+
+            .sub-text {
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="surprise-page">
+
+
+        <div class="decor decor1">♡</div>
+
+        <div class="decor decor2">✦</div>
+
+        <div class="decor decor3">♡</div>
+
+        <div class="decor decor4">✦</div>
+
+
+        <div class="content">
+
+
+            <div class="heart">
+                ♡
+            </div>
+
+
+            <div class="small-text">
+                A little surprise for you
+            </div>
+
+
+            <h1 class="main-title">
+                I HAVE<br>
+                A SURPRISE<br>
+                FOR YOU
+            </h1>
+
+
+            <p class="sub-text">
+                Made with all my love ❤️
+            </p>
+
+
+            <button
+                class="click-button"
+                onclick="openSurprise()">
+
+                CLICK ME ❤️
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        function openSurprise() {
+
+            window.location.href = "anniversary.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
