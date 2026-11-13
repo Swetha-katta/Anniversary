@@ -24,18 +24,20 @@
 
         /* FIRST PAGE */
 
-        .surprise-page {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+        inset: -20px;
+    background: url("./background.jpeg") center / cover no-repeat;
+    filter: blur(12px) brightness(0.65);
+    z-index: 0;
+}
 
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.20),
-            rgba(0, 0, 0, 0.20)
-        ),
+/* Original photo in the centre */
+.surprise-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("./background.jpeg") center / contain no-repeat;
+    z-index: 1;
+},
         url("./background.jpeg");
 
     background-size: contain;
@@ -56,13 +58,11 @@
         }
 
 
-        .content {
-
-            position: relative;
-            z-index: 5;
-
-            padding: 30px;
-        }
+      .content {
+    position: relative;
+    z-index: 5;
+    padding: 30px;
+}
 
 
         .small-text {
