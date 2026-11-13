@@ -20,21 +20,25 @@
             box-sizing: border-box;
         }
         /* Romantic photo frame */
-.anniversary-photo {
-    width: 340px;
-    max-width: 85%;
-    height: auto;
+.photo-frame {
+    display: inline-block;
     padding: 10px;
-    background: linear-gradient(135deg, #fffaf0, #e8b7a9, #fffaf0);
-    border: 2px solid #d6a18e;
-    border-radius: 22px;
+    margin: 25px auto;
+    background: linear-gradient(135deg, #fff8ee, #d6a18e, #fff8ee);
+    border: 2px solid #c99578;
+    border-radius: 25px;
     box-shadow:
-        0 0 0 5px rgba(255,255,255,0.75),
-        0 12px 35px rgba(130,65,65,0.25),
-        0 0 25px rgba(220,160,150,0.3);
-    object-fit: cover;
-    transition: transform 0.4s ease;
+        0 0 0 5px white,
+        0 10px 30px rgba(120, 60, 60, 0.25);
 }
+
+.photo-frame img {
+    display: block;
+    width: 320px;
+    max-width: 75vw;
+    height: auto;
+    border-radius: 16px;
+}}
 
 .anniversary-photo:hover {
     transform: scale(1.03);
@@ -365,13 +369,9 @@ body::after {
 
         <!-- YOUR PHOTO -->
 
-        <div class="photo-frame">
-
-            <img
-                src="our photo.jpeg"
-                alt="Swetha and Satya Prakash">
-
-        </div>
+       <div class="photo-frame">
+    <img src="our photo.jpeg" alt="Swetha and Satya Prakash">
+</div>
 
 
         <p class="message">
