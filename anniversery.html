@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Anniversary ❤️</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf8,
+                    #f6e2df
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+
+        /* FLOWERS */
+
+        .flower {
+
+            position: fixed;
+
+            top: -50px;
+
+            font-size: 25px;
+
+            animation: fall linear infinite;
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+
+        @keyframes fall {
+
+            0% {
+
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+            10% {
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity: 0.8;
+
+            }
+
+        }
+
+
+        /* MAIN CONTENT */
+
+        .anniversary-content {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 90%;
+
+            max-width: 800px;
+
+            padding: 30px;
+        }
+
+
+        .small-heading {
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+
+            color: #80676a;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+
+        .title {
+
+            font-size: clamp(
+                50px,
+                9vw,
+                100px
+            );
+
+            font-weight: normal;
+
+            color: #9d6267;
+
+            line-height: 1;
+
+            margin-bottom: 15px;
+        }
+
+
+        .names {
+
+            font-size: clamp(
+                25px,
+                4vw,
+                40px
+            );
+
+            color: #493b3e;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* PHOTO */
+
+        .photo-frame {
+
+            width: 280px;
+
+            height: 350px;
+
+            margin: 0 auto 30px;
+
+            padding: 8px;
+
+            background: white;
+
+            border: 1px solid #dfc4c0;
+
+            box-shadow:
+                0 15px 40px
+                rgba(80, 50, 50, 0.18);
+        }
+
+
+        .photo-frame img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .message {
+
+            font-size: 20px;
+
+            color: #67585b;
+
+            line-height: 1.7;
+        }
+
+
+        .date {
+
+            margin-top: 15px;
+
+            color: #a96c70;
+
+            font-size: 17px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .photo-frame {
+
+                width: 220px;
+
+                height: 280px;
+
+            }
+
+            .title {
+
+                font-size: 55px;
+
+            }
+
+            .message {
+
+                font-size: 17px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FALLING FLOWERS -->
+
+    <div class="flower"
+         style="left:5%; animation-duration:8s;">
+        🌸
+    </div>
+
+    <div class="flower"
+         style="left:15%; animation-duration:11s; animation-delay:2s;">
+        🌷
+    </div>
+
+    <div class="flower"
+         style="left:28%; animation-duration:9s; animation-delay:1s;">
+        🌸
+    </div>
+
+    <div class="flower"
+         style="left:40%; animation-duration:12s; animation-delay:4s;">
+        🌹
+    </div>
+
+    <div class="flower"
+         style="left:52%; animation-duration:8s; animation-delay:2s;">
+        🌸
+    </div>
+
+    <div class="flower"
+         style="left:65%; animation-duration:10s; animation-delay:3s;">
+        🌷
+    </div>
+
+    <div class="flower"
+         style="left:78%; animation-duration:9s; animation-delay:1s;">
+        🌸
+    </div>
+
+    <div class="flower"
+         style="left:90%; animation-duration:12s; animation-delay:5s;">
+        🌹
+    </div>
+
+
+    <!-- MAIN -->
+
+    <div class="anniversary-content">
+
+
+        <div class="small-heading">
+            To My Love
+        </div>
+
+
+        <h1 class="title">
+            HAPPY<br>
+            ANNIVERSARY
+        </h1>
+
+
+        <div class="names">
+            Swetha ❤️ Satya Prakash
+        </div>
+
+
+        <!-- YOUR PHOTO -->
+
+        <div class="photo-frame">
+
+            <img
+                src="our-photo.jpg"
+                alt="Swetha and Satya Prakash">
+
+        </div>
+
+
+        <p class="message">
+
+            Every moment with you
+            is a beautiful memory. ❤️
+
+        </p>
+
+
+        <div class="date">
+
+            23 • 11 • 2023
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
