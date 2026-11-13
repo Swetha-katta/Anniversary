@@ -1,16 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Happy Anniversary ❤️</title>
-
 
     <style>
 
@@ -19,379 +15,372 @@
             padding: 0;
             box-sizing: border-box;
         }
-        /* Romantic photo frame */
-.photo-frame {
-    display: inline-block;
-    padding: 10px;
-    margin: 25px auto;
-    background: linear-gradient(135deg, #fff8ee, #d6a18e, #fff8ee);
-    border: 2px solid #c99578;
-    border-radius: 25px;
-    box-shadow:
-        0 0 0 5px white,
-        0 10px 30px rgba(120, 60, 60, 0.25);
-}
 
-.photo-frame img {
-    display: block;
-    width: 320px;
-    max-width: 75vw;
-    height: auto;
-    border-radius: 16px;
-}}
+        /* BACKGROUND */
 
-.anniversary-photo:hover {
-    transform: scale(1.03);
-}
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: Georgia, "Times New Roman", serif;
 
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(255, 210, 215, 0.8),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 85%,
+                    rgba(238, 194, 174, 0.7),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 50% 50%,
+                    #fffdf9,
+                    #f8e3e3,
+                    #f3d4d3
+                );
 
-       body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: Georgia, "Times New Roman", serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
 
-    background:
-        radial-gradient(circle at 10% 15%,
-            rgba(255, 210, 215, 0.8), transparent 35%),
-        radial-gradient(circle at 90% 85%,
-            rgba(238, 194, 174, 0.7), transparent 35%),
-        radial-gradient(circle at 50% 50%,
-            #fffdf9, #f8e3e3, #f3d4d3);
+            text-align: center;
+            position: relative;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
+            padding: 45px 15px 60px;
+        }
 
-/* ADD GLOWING CORNERS BELOW BODY */
+        /* GLOWING CORNERS */
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 15px;
-    border: 1px solid rgba(180, 120, 100, 0.35);
-    border-radius: 25px;
-    pointer-events: none;
-    z-index: 0;
-}
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 15px;
 
-body::after {
-    content: "";
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    background: rgba(255, 255, 255, 0.35);
-    filter: blur(80px);
-    border-radius: 50%;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 0;
-}       
+            border: 1px solid rgba(180, 120, 100, 0.4);
+            border-radius: 25px;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 350px;
+            height: 350px;
+
+            background: rgba(255, 255, 255, 0.35);
+
+            filter: blur(80px);
+            border-radius: 50%;
+
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
         /* FALLING ROSE PETALS */
 
-.petal {
-    position: fixed;
-    top: -40px;
+        .petal {
+            position: fixed;
+            top: -40px;
 
-    width: 18px;
-    height: 25px;
+            width: 18px;
+            height: 25px;
 
-    background: linear-gradient(
-        135deg,
-        #f6a0ad,
-        #c73558,
-        #8f1838
-    );
+            background: linear-gradient(
+                135deg,
+                #f6a0ad,
+                #c73558,
+                #8f1838
+            );
 
-    border-radius: 80% 0 80% 0;
+            border-radius: 80% 0 80% 0;
 
-    opacity: 0.85;
+            opacity: 0.85;
 
-    z-index: 1;
-    pointer-events: none;
+            z-index: 2;
+            pointer-events: none;
 
-    animation: petalFall linear infinite;
-}
+            animation: petalFall linear infinite;
+        }
 
-@keyframes petalFall {
-
-    0% {
-        transform: translateY(-40px) rotate(0deg);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.9;
-    }
-
-    50% {
-        transform: translateY(50vh) translateX(35px)
-                   rotate(180deg);
-    }
-
-    100% {
-        transform: translateY(110vh) translateX(-35px)
-                   rotate(360deg);
-        opacity: 0;
-    }
-}
-
-        @keyframes fall {
+        @keyframes petalFall {
 
             0% {
-
-                transform:
-                    translateY(-50px)
-                    rotate(0deg);
-
+                transform: translateY(-40px) rotate(0deg);
                 opacity: 0;
-
             }
 
             10% {
+                opacity: 0.9;
+            }
 
-                opacity: 1;
-
+            50% {
+                transform:
+                    translateY(50vh)
+                    translateX(35px)
+                    rotate(180deg);
             }
 
             100% {
-
                 transform:
                     translateY(110vh)
+                    translateX(-35px)
                     rotate(360deg);
 
-                opacity: 0.8;
-
+                opacity: 0;
             }
-
         }
-
 
         /* MAIN CONTENT */
 
         .anniversary-content {
-
             position: relative;
-
             z-index: 5;
 
-            width: 90%;
+            width: 100%;
+            max-width: 850px;
 
-            max-width: 800px;
-
-            padding: 30px;
+            padding: 20px;
         }
 
+        /* SMALL HEADING */
 
         .small-heading {
-
             font-size: 18px;
-
             letter-spacing: 5px;
 
             color: #80676a;
-
             text-transform: uppercase;
 
             margin-bottom: 15px;
         }
 
+        /* MAIN TITLE */
 
         .title {
-
-            font-size: clamp(
-                50px,
-                9vw,
-                100px
-            );
+            font-size: clamp(48px, 9vw, 100px);
 
             font-weight: normal;
 
             color: #9d6267;
 
-            line-height: 1;
+            line-height: 1.05;
 
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 2px 10px rgba(180, 100, 110, 0.15);
         }
 
+        /* NAMES */
 
         .names {
-
-            font-size: clamp(
-                25px,
-                4vw,
-                40px
-            );
+            font-size: clamp(23px, 4vw, 40px);
 
             color: #493b3e;
 
             margin-bottom: 30px;
         }
 
-
-        /* PHOTO */
+        /* ROMANTIC ROSE GOLD PHOTO FRAME */
 
         .photo-frame {
-
-            width: 280px;
-
-            height: 350px;
+            width: 300px;
+            height: 370px;
 
             margin: 0 auto 30px;
+            padding: 10px;
 
-            padding: 8px;
+            background: linear-gradient(
+                135deg,
+                #fff8ed,
+                #d6a18e,
+                #f8e3d5,
+                #c99578
+            );
 
-            background: white;
-
-            border: 1px solid #dfc4c0;
+            border: 2px solid #c99578;
+            border-radius: 25px;
 
             box-shadow:
-                0 15px 40px
-                rgba(80, 50, 50, 0.18);
+                0 0 0 5px rgba(255,255,255,0.8),
+                0 12px 30px rgba(130,65,65,0.25),
+                0 0 25px rgba(220,160,150,0.3);
+
+            transition: transform 0.4s ease;
         }
 
-
         .photo-frame img {
-
             width: 100%;
-
             height: 100%;
 
             object-fit: cover;
 
             display: block;
+
+            border-radius: 17px;
+
+            border: 2px solid white;
         }
 
+        .photo-frame:hover {
+            transform: scale(1.03);
+        }
+
+        /* MESSAGE */
 
         .message {
-
             font-size: 20px;
 
             color: #67585b;
 
             line-height: 1.7;
-        }
-
-
-        .date {
 
             margin-top: 15px;
+        }
+
+        /* DATE */
+
+        .date {
+            margin-top: 18px;
 
             color: #a96c70;
 
-            font-size: 17px;
+            font-size: 18px;
 
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
+        /* BOTTOM DECORATION */
 
-        /* MOBILE */
+        .bottom-text {
+            margin-top: 25px;
+
+            font-size: 16px;
+
+            color: #a96c70;
+
+            font-style: italic;
+        }
+
+        /* MOBILE RESPONSIVE */
 
         @media (max-width: 600px) {
 
-            .photo-frame {
+            body {
+                padding: 35px 12px 50px;
+            }
 
-                width: 220px;
+            .anniversary-content {
+                padding: 15px 5px;
+            }
 
-                height: 280px;
-
+            .small-heading {
+                font-size: 14px;
+                letter-spacing: 4px;
             }
 
             .title {
+                font-size: 52px;
+            }
 
-                font-size: 55px;
+            .names {
+                font-size: 25px;
+            }
 
+            .photo-frame {
+                width: 240px;
+                height: 300px;
             }
 
             .message {
-
                 font-size: 17px;
-
             }
 
+            .date {
+                font-size: 15px;
+            }
         }
 
     </style>
 
 </head>
 
-
 <body>
 
+    <!-- FALLING ROSE PETALS -->
+
+    <div class="petal" style="left:5%; animation-duration:9s;"></div>
+
+    <div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;"></div>
+
+    <div class="petal" style="left:25%; animation-duration:10s; animation-delay:1s;"></div>
+
+    <div class="petal" style="left:35%; animation-duration:13s; animation-delay:3s;"></div>
+
+    <div class="petal" style="left:45%; animation-duration:9s; animation-delay:2s;"></div>
+
+    <div class="petal" style="left:55%; animation-duration:11s; animation-delay:4s;"></div>
+
+    <div class="petal" style="left:65%; animation-duration:10s; animation-delay:1s;"></div>
+
+    <div class="petal" style="left:75%; animation-duration:12s; animation-delay:3s;"></div>
+
+    <div class="petal" style="left:85%; animation-duration:9s; animation-delay:2s;"></div>
+
+    <div class="petal" style="left:95%; animation-duration:11s; animation-delay:4s;"></div>
 
 
-<!-- FALLING ROSE PETALS -->
-
-<div class="petal" style="left:5%; animation-duration:9s;"></div>
-
-<div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:25%; animation-duration:10s; animation-delay:1s;"></div>
-
-<div class="petal" style="left:35%; animation-duration:13s; animation-delay:3s;"></div>
-
-<div class="petal" style="left:45%; animation-duration:9s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:55%; animation-duration:11s; animation-delay:4s;"></div>
-
-<div class="petal" style="left:65%; animation-duration:10s; animation-delay:1s;"></div>
-
-<div class="petal" style="left:75%; animation-duration:12s; animation-delay:3s;"></div>
-
-<div class="petal" style="left:85%; animation-duration:9s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:95%; animation-duration:11s; animation-delay:4s;"></div>
-
-    <!-- MAIN -->
+    <!-- MAIN ANNIVERSARY CONTENT -->
 
     <div class="anniversary-content">
-
 
         <div class="small-heading">
             To My Love
         </div>
-
 
         <h1 class="title">
             HAPPY<br>
             ANNIVERSARY
         </h1>
 
-
         <div class="names">
             Swetha ❤️ Satya Prakash
         </div>
 
-
         <!-- YOUR PHOTO -->
 
-       <div class="photo-frame">
-    <img src="our photo.jpeg" alt="Swetha and Satya Prakash">
-</div>
+        <div class="photo-frame">
 
-
-        <p class="message">
-
-            Every moment with you
-            is a beautiful memory. ❤️
-
-        </p>
-
-
-        <div class="date">
-
-            23 • 11 • 2023
+            <img
+                src="our photo.jpeg"
+                alt="Swetha and Satya Prakash"
+            >
 
         </div>
 
+        <p class="message">
+            Every moment with you<br>
+            is a beautiful memory. ❤️
+        </p>
+
+        <div class="date">
+            23 • 11 • 2023
+        </div>
+
+        <div class="bottom-text">
+            Forever Together ❤️
+        </div>
 
     </div>
 
-
 </body>
-
 </html>
