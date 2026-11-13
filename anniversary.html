@@ -21,48 +21,34 @@
         }
 
 
-        body {
+       body {
     min-height: 100vh;
     overflow-x: hidden;
-
     font-family: Georgia, "Times New Roman", serif;
 
     background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(255, 210, 215, 0.8),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 90% 85%,
-            rgba(238, 194, 174, 0.7),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            #fffdf9,
-            #f8e3e3,
-            #f3d4d3
-        );
+        radial-gradient(circle at 10% 15%,
+            rgba(255, 210, 215, 0.8), transparent 35%),
+        radial-gradient(circle at 90% 85%,
+            rgba(238, 194, 174, 0.7), transparent 35%),
+        radial-gradient(circle at 50% 50%,
+            #fffdf9, #f8e3e3, #f3d4d3);
 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
     position: relative;
 }
-/* ROMANTIC BACKGROUND GLOW */
+
+/* ADD GLOWING CORNERS BELOW BODY */
 
 body::before {
     content: "";
     position: fixed;
     inset: 15px;
-
     border: 1px solid rgba(180, 120, 100, 0.35);
-
     border-radius: 25px;
-
     pointer-events: none;
     z-index: 0;
 }
@@ -70,24 +56,17 @@ body::before {
 body::after {
     content: "";
     position: fixed;
-
     width: 350px;
     height: 350px;
-
     background: rgba(255, 255, 255, 0.35);
-
     filter: blur(80px);
-
     border-radius: 50%;
-
     top: 10%;
     left: 50%;
-
     transform: translateX(-50%);
-
     pointer-events: none;
     z-index: 0;
-}
+}       
         /* FALLING ROSE PETALS */
 
 .petal {
