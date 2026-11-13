@@ -1,14 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>A Surprise For You ❤️</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -16,243 +15,202 @@
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             overflow: hidden;
             font-family: Georgia, "Times New Roman", serif;
-            background: #fff8f6;
+            background: #222;
         }
 
-        /* FIRST PAGE */
+        /* MAIN PAGE */
 
-        inset: -20px;
-    background: url("./background.jpeg") center / cover no-repeat;
-    filter: blur(12px) brightness(0.65);
-    z-index: 0;
-}
-
-/* Original photo in the centre */
-.surprise-page::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("./background.jpeg") center / contain no-repeat;
-    z-index: 1;
-},
-        
-    background-color: #222;
-    position: relative;
-},
-        url("./background.jpeg");
-
-   background-size: contain;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-color: #000;
-
-    position: relative;
-}
+        .surprise-page {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: #222;
         }
 
+        /* BLURRED PHOTO ON THE SIDES */
 
-      .content {
-    position: relative;
-    z-index: 5;
-    padding: 30px;
-}
+        .surprise-page::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            background-image: url("./background.jpeg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px) brightness(0.65);
+            z-index: 0;
+        }
 
+        /* ORIGINAL FULL PHOTO IN THE CENTRE */
+
+        .surprise-page::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("./background.jpeg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        /* TEXT CONTENT */
+
+        .content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            padding: 25px;
+        }
 
         .small-text {
-
             font-size: 18px;
-
             letter-spacing: 5px;
-
-            color: #051f45;
-
+            color: white;
             margin-bottom: 25px;
-
             text-transform: uppercase;
+            text-shadow: 2px 2px 8px #000;
         }
-
 
         .main-title {
-
-            font-size: clamp(45px, 8vw, 95px);
-
+            font-size: clamp(35px, 6vw, 75px);
             font-weight: normal;
-
-            color: #062b5e;
-
-            line-height: 1.1;
-
+            color: white;
+            line-height: 1.15;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 10px #000;
         }
-
 
         .heart {
-
             font-size: 55px;
-
-            color: #5e062e;
-
+            color: #ffb6c8;
             margin-bottom: 25px;
-
             animation: heartbeat 1.5s infinite;
+            text-shadow: 2px 2px 8px #000;
         }
-
 
         @keyframes heartbeat {
-
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
         }
-
 
         .sub-text {
-
             font-size: 20px;
-
-            color: #0c5685;
-
+            color: white;
             margin-bottom: 40px;
+            text-shadow: 2px 2px 8px #000;
         }
-
 
         /* BUTTON */
 
         .click-button {
-
             border: none;
-
             background: #03132b;
-
             color: white;
-
             padding: 17px 45px;
-
             border-radius: 50px;
-
             font-family: Georgia, serif;
-
             font-size: 18px;
-
             letter-spacing: 2px;
-
             cursor: pointer;
-
-            box-shadow: 0 8px 25px rgba(120, 70, 70, 0.25);
-
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
-
         .click-button:hover {
-
             transform: scale(1.08);
-
-            background: #03132b;
-
-            box-shadow: 0 12px 30px rgba(120, 70, 70, 0.35);
+            background: #5e062e;
         }
 
-
-        /* SMALL DECORATIONS */
+        /* DECORATIONS */
 
         .decor {
-
             position: absolute;
-
+            z-index: 3;
             font-size: 30px;
-
-            opacity: 0.45;
+            color: white;
+            opacity: 0.7;
+            text-shadow: 2px 2px 8px #000;
         }
-
 
         .decor1 {
             top: 15%;
             left: 12%;
         }
 
-
         .decor2 {
             top: 25%;
             right: 12%;
         }
-
 
         .decor3 {
             bottom: 15%;
             left: 18%;
         }
 
-
         .decor4 {
             bottom: 20%;
             right: 18%;
         }
 
-
-        /* MOBILE */
+        /* MOBILE SCREEN */
 
         @media (max-width: 600px) {
+            .content {
+                padding: 15px;
+            }
 
             .main-title {
-                font-size: 48px;
+                font-size: clamp(30px, 9vw, 48px);
             }
 
             .small-text {
-                font-size: 13px;
+                font-size: 12px;
                 letter-spacing: 3px;
             }
 
             .sub-text {
-                font-size: 17px;
+                font-size: 16px;
             }
 
+            .heart {
+                font-size: 42px;
+            }
+
+            .click-button {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
         }
 
     </style>
-
 </head>
-
 
 <body>
 
-
     <div class="surprise-page">
 
-
         <div class="decor decor1">♡</div>
-
         <div class="decor decor2">✦</div>
-
         <div class="decor decor3">♡</div>
-
         <div class="decor decor4">✦</div>
-
 
         <div class="content">
 
-
-            <div class="heart">
-                ♡
-            </div>
-
+            <div class="heart">♡</div>
 
             <div class="small-text">
                 A little surprise for you
             </div>
-
 
             <h1 class="main-title">
                 SATYA PRAKASH GARU<br>
@@ -260,38 +218,26 @@
                 FOR YOU
             </h1>
 
-
             <p class="sub-text">
                 Made with all my love ❤️
             </p>
 
-
             <button
                 class="click-button"
                 onclick="openSurprise()">
-
                 CLICK ME ❤️
-
             </button>
-
 
         </div>
 
-
     </div>
 
-
     <script>
-
         function openSurprise() {
-
             window.location.href = "anniversary.html";
-
         }
-
     </script>
 
-
 </body>
-
 </html>
+
