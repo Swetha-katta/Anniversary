@@ -48,23 +48,54 @@
         }
 
 
-        /* FLOWERS */
+        /* FALLING ROSE PETALS */
 
-        .flower {
+.petal {
+    position: fixed;
+    top: -40px;
 
-            position: fixed;
+    width: 18px;
+    height: 25px;
 
-            top: -50px;
+    background: linear-gradient(
+        135deg,
+        #f6a0ad,
+        #c73558,
+        #8f1838
+    );
 
-            font-size: 25px;
+    border-radius: 80% 0 80% 0;
 
-            animation: fall linear infinite;
+    opacity: 0.85;
 
-            z-index: 1;
+    z-index: 1;
+    pointer-events: none;
 
-            pointer-events: none;
-        }
+    animation: petalFall linear infinite;
+}
 
+@keyframes petalFall {
+
+    0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(35px)
+                   rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(-35px)
+                   rotate(360deg);
+        opacity: 0;
+    }
+}
 
         @keyframes fall {
 
@@ -249,48 +280,37 @@
 <body>
 
 
-    <!-- FALLING FLOWERS -->
+    }
+}
 
-    <div class="flower"
-         style="left:5%; animation-duration:8s;">
-        🌸
-    </div>
 
-    <div class="flower"
-         style="left:15%; animation-duration:11s; animation-delay:2s;">
-        🌷
-    </div>
+Step 2: Replace the flower HTML
+Delete your old flower elements, such as:
+<div class="flower">🌸</div>
 
-    <div class="flower"
-         style="left:28%; animation-duration:9s; animation-delay:1s;">
-        🌸
-    </div>
 
-    <div class="flower"
-         style="left:40%; animation-duration:12s; animation-delay:4s;">
-        🌹
-    </div>
+Add this instead, immediately after the opening <body> tag:
+<!-- FALLING ROSE PETALS -->
 
-    <div class="flower"
-         style="left:52%; animation-duration:8s; animation-delay:2s;">
-        🌸
-    </div>
+<div class="petal" style="left:5%; animation-duration:9s;"></div>
 
-    <div class="flower"
-         style="left:65%; animation-duration:10s; animation-delay:3s;">
-        🌷
-    </div>
+<div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;"></div>
 
-    <div class="flower"
-         style="left:78%; animation-duration:9s; animation-delay:1s;">
-        🌸
-    </div>
+<div class="petal" style="left:25%; animation-duration:10s; animation-delay:1s;"></div>
 
-    <div class="flower"
-         style="left:90%; animation-duration:12s; animation-delay:5s;">
-        🌹
-    </div>
+<div class="petal" style="left:35%; animation-duration:13s; animation-delay:3s;"></div>
 
+<div class="petal" style="left:45%; animation-duration:9s; animation-delay:2s;"></div>
+
+<div class="petal" style="left:55%; animation-duration:11s; animation-delay:4s;"></div>
+
+<div class="petal" style="left:65%; animation-duration:10s; animation-delay:1s;"></div>
+
+<div class="petal" style="left:75%; animation-duration:12s; animation-delay:3s;"></div>
+
+<div class="petal" style="left:85%; animation-duration:9s; animation-delay:2s;"></div>
+
+<div class="petal" style="left:95%; animation-duration:11s; animation-delay:4s;"></div>
 
     <!-- MAIN -->
 
