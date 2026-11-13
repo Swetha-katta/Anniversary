@@ -25,20 +25,25 @@
         /* FIRST PAGE */
 
         .surprise-page {
-
-    height: 100vh;
-
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
 
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.25),
-            rgba(0, 0, 0, 0.25)
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.20)
         ),
+        url("./background.jpeg");
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #222;
+    position: relative;
+},
         url("./background.jpeg");
 
    background-size: contain;
