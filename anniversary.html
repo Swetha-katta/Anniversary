@@ -6,11 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Anniversary ❤️</title>
+<title>Our Beautiful Memories ❤️</title>
 
 <style>
-
-/* RESET */
 
 * {
     margin: 0;
@@ -18,107 +16,49 @@
     box-sizing: border-box;
 }
 
-/* ROMANTIC BACKGROUND */
-
 body {
     min-height: 100vh;
     overflow-x: hidden;
-
     font-family: Georgia, "Times New Roman", serif;
 
     background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(255, 210, 215, 0.8),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 90% 85%,
-            rgba(238, 194, 174, 0.7),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            #fffdf9,
-            #f8e3e3,
-            #f3d4d3
-        );
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+        radial-gradient(circle at 10% 15%, #fce1e3, transparent 35%),
+        radial-gradient(circle at 90% 85%, #f0d1c5, transparent 35%),
+        linear-gradient(135deg, #fffaf8, #f7e1e2, #f3d4d3);
 
     text-align: center;
-    position: relative;
-
     padding: 45px 15px 60px;
+    position: relative;
 }
-
-/* DECORATIVE BORDER */
 
 body::before {
     content: "";
     position: fixed;
     inset: 15px;
-
-    border: 1px solid rgba(180, 120, 100, 0.4);
+    border: 1px solid rgba(180,120,100,0.4);
     border-radius: 25px;
-
     pointer-events: none;
-    z-index: 4;
-}
-
-/* SOFT BACKGROUND GLOW */
-
-body::after {
-    content: "";
-    position: fixed;
-
-    width: 350px;
-    height: 350px;
-
-    background: rgba(255, 255, 255, 0.35);
-
-    filter: blur(80px);
-    border-radius: 50%;
-
-    top: 10%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    pointer-events: none;
-    z-index: 0;
+    z-index: 5;
 }
 
 /* FALLING ROSE PETALS */
 
 .petal {
     position: fixed;
-    top: -40px;
+    top: -35px;
+    width: 17px;
+    height: 24px;
 
-    width: 18px;
-    height: 25px;
-
-    background: linear-gradient(
-        135deg,
-        #a65162,
-        #f2728c,
-        #f55d5d
-    );
+    background: linear-gradient(135deg, #f6a0ad, #c73558, #8f1838);
 
     border-radius: 80% 0 80% 0;
-
-    opacity: 0.85;
-
-    z-index: 2;
     pointer-events: none;
+    z-index: 2;
 
-    animation: petalFall linear infinite;
+    animation: fall linear infinite;
 }
 
-@keyframes petalFall {
-
+@keyframes fall {
     0% {
         transform: translateY(-40px) rotate(0deg);
         opacity: 0;
@@ -128,298 +68,353 @@ body::after {
         opacity: 0.9;
     }
 
-    50% {
-        transform:
-            translateY(50vh)
-            translateX(35px)
-            rotate(180deg);
-    }
-
     100% {
-        transform:
-            translateY(110vh)
-            translateX(-35px)
-            rotate(360deg);
-
+        transform: translateY(110vh) translateX(35px) rotate(360deg);
         opacity: 0;
     }
 }
 
 /* MAIN CONTENT */
 
-.anniversary-content {
+.container {
     position: relative;
-    z-index: 5;
-
-    width: 100%;
-    max-width: 850px;
-
-    padding: 20px;
+    z-index: 3;
+    max-width: 950px;
+    margin: auto;
+    padding: 15px;
 }
-
-/* SMALL HEADING */
 
 .small-heading {
-    font-size: 18px;
-    letter-spacing: 5px;
-
     color: #80676a;
-    text-transform: uppercase;
-
+    font-size: 16px;
+    letter-spacing: 5px;
     margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-/* MAIN TITLE */
-
-.title {
-    font-size: clamp(48px, 9vw, 100px);
-
-    font-weight: normal;
-
+h1 {
     color: #9d6267;
-
-    line-height: 1.05;
-
-    margin-bottom: 20px;
-
-    text-shadow:
-        0 2px 10px rgba(180, 100, 110, 0.15);
+    font-size: clamp(38px, 7vw, 65px);
+    font-weight: normal;
+    margin-bottom: 12px;
 }
-
-/* COUPLE NAMES */
 
 .names {
-    font-size: clamp(23px, 4vw, 40px);
-
     color: #493b3e;
-
-    margin-bottom: 30px;
+    font-size: clamp(22px, 4vw, 32px);
+    margin-bottom: 25px;
 }
 
-/* LUXURY ROSE GOLD PHOTO FRAME */
+.intro {
+    color: #80676a;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
 
-.photo-frame {
-    position: relative;
+/* MUSIC PLAYER */
 
-    width: 350px;
-    height: 430px;
+.music-player {
+    margin: 25px auto 40px;
+}
 
-    margin: 35px auto 40px;
+.music-player button {
+    background: linear-gradient(135deg, #d6a18e, #a96c70);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(130,65,65,0.2);
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin: 35px auto;
+}
+
+/* MEMORY CARD */
+
+.memory-card {
+    background: rgba(255,255,255,0.85);
     padding: 12px;
 
-    background: linear-gradient(
-        135deg,
-        #f8e6c8,
-        #bd875f,
-        #fff1d9,
-        #bd875f
-    );
+    border: 2px solid #d6a18e;
+    border-radius: 20px;
 
-    border: 3px solid #bd875f;
-    border-radius: 28px;
+    box-shadow: 0 10px 25px rgba(130,65,65,0.15);
 
-    box-shadow:
-        0 0 0 5px #fffaf4,
-        0 0 0 8px #d7ad8b,
-        0 15px 40px rgba(120, 65, 65, 0.25);
-
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
-/* PHOTO */
+.memory-card:hover {
+    transform: translateY(-6px);
+}
 
-.photo-frame img {
-    display: block;
-
+.memory-card img {
     width: 100%;
-    height: 100%;
+    height: 260px;
 
     object-fit: cover;
 
-    border: 3px solid #fffaf4;
-    border-radius: 17px;
+    border-radius: 13px;
+    border: 2px solid #f2d7ce;
 }
 
-/* DECORATIVE FRAME CORNERS */
-
-.photo-frame::before,
-.photo-frame::after {
-    content: "❦";
-
-    position: absolute;
-
-    color: #a96c70;
-    font-size: 30px;
-
-    z-index: 2;
+.memory-card h2 {
+    color: #9d6267;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 15px 0 8px;
 }
 
-.photo-frame::before {
-    top: -17px;
-    left: -12px;
-}
-
-.photo-frame::after {
-    bottom: -17px;
-    right: -12px;
-}
-
-/* PHOTO HOVER */
-
-.photo-frame:hover {
-    transform: scale(1.025);
-}
-
-/* MESSAGE */
-
-.message {
-    font-size: 20px;
-
+.memory-card p {
     color: #67585b;
-
+    font-size: 15px;
     line-height: 1.7;
-
-    margin-top: 15px;
+    padding: 0 5px 10px;
 }
 
-/* ANNIVERSARY DATE */
+/* FINAL MESSAGE */
+
+.final-message {
+    color: #9d6267;
+    font-size: 25px;
+    line-height: 1.7;
+    margin-top: 45px;
+}
 
 .date {
-    margin-top: 18px;
-
     color: #a96c70;
-
-    font-size: 18px;
-
     letter-spacing: 3px;
+    margin-top: 20px;
 }
 
-/* BOTTOM TEXT */
+/* LETTER BUTTON */
 
-.bottom-text {
-    margin-top: 25px;
+.letter-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 30px;
 
-    font-size: 17px;
+    background: #a96c70;
+    color: white;
 
-    color: #a96c70;
-
-    font-style: italic;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-/* MOBILE RESPONSIVE */
+.letter-button:hover {
+    background: #8f555c;
+    transform: scale(1.05);
+}
+
+/* MOBILE */
 
 @media (max-width: 600px) {
 
     body {
-        padding: 35px 12px 50px;
+        padding: 35px 10px 50px;
     }
 
-    .anniversary-content {
-        padding: 15px 5px;
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
     }
 
-    .small-heading {
-        font-size: 14px;
-        letter-spacing: 4px;
+    .memory-card {
+        padding: 7px;
     }
 
-    .title {
-        font-size: 52px;
+    .memory-card img {
+        height: 155px;
     }
 
-    .names {
-        font-size: 25px;
+    .memory-card h2 {
+        font-size: 16px;
     }
 
-    .photo-frame {
-        width: 250px;
-        height: 310px;
+    .memory-card p {
+        font-size: 13px;
     }
 
-    .message {
-        font-size: 17px;
-    }
-
-    .date {
+    .intro {
         font-size: 15px;
     }
 
-    .bottom-text {
-        font-size: 15px;
+    .final-message {
+        font-size: 20px;
     }
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- FALLING ROSE PETALS -->
+<!-- ROSE PETALS -->
 
-<div class="petal" style="left:5%; animation-duration:9s;"></div>
-
-<div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:25%; animation-duration:10s; animation-delay:1s;"></div>
-
-<div class="petal" style="left:35%; animation-duration:13s; animation-delay:3s;"></div>
-
-<div class="petal" style="left:45%; animation-duration:9s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:55%; animation-duration:11s; animation-delay:4s;"></div>
-
-<div class="petal" style="left:65%; animation-duration:10s; animation-delay:1s;"></div>
-
-<div class="petal" style="left:75%; animation-duration:12s; animation-delay:3s;"></div>
-
-<div class="petal" style="left:85%; animation-duration:9s; animation-delay:2s;"></div>
-
-<div class="petal" style="left:95%; animation-duration:11s; animation-delay:4s;"></div>
+<div class="petal" style="left:5%;animation-duration:9s;"></div>
+<div class="petal" style="left:15%;animation-duration:12s;animation-delay:2s;"></div>
+<div class="petal" style="left:25%;animation-duration:10s;animation-delay:1s;"></div>
+<div class="petal" style="left:35%;animation-duration:13s;animation-delay:3s;"></div>
+<div class="petal" style="left:45%;animation-duration:9s;animation-delay:2s;"></div>
+<div class="petal" style="left:55%;animation-duration:11s;animation-delay:4s;"></div>
+<div class="petal" style="left:65%;animation-duration:10s;animation-delay:1s;"></div>
+<div class="petal" style="left:75%;animation-duration:12s;animation-delay:3s;"></div>
+<div class="petal" style="left:85%;animation-duration:9s;animation-delay:2s;"></div>
+<div class="petal" style="left:95%;animation-duration:11s;animation-delay:4s;"></div>
 
 
-<!-- MAIN ANNIVERSARY CONTENT -->
-
-<div class="anniversary-content">
+<div class="container">
 
     <div class="small-heading">
-        To My Love
+        Our Journey Together
     </div>
 
-    <h1 class="title">
-        HAPPY<br>
-        ANNIVERSARY
-    </h1>
+    <h1>Our Beautiful Memories</h1>
 
     <div class="names">
         Swetha ❤️ Satya Prakash
     </div>
 
-    <!-- YOUR PHOTO -->
+    <p class="intro">
+        Every picture tells a story.<br>
+        Every memory becomes special because you are in it. ❤️
+    </p>
 
-    <div class="photo-frame">
+    <!-- MUSIC PLAYER -->
 
-        <img
-            src="our photo.jpeg"
-            alt="Swetha and Satya Prakash"
-        >
+    <div class="music-player">
+
+        <audio id="loveSong" loop>
+            <source src="dheema-dheema.mp3" type="audio/mpeg">
+        </audio>
+
+        <button onclick="toggleMusic()" id="musicButton">
+            🎵 Play Dheema Dheema ❤️
+        </button>
 
     </div>
 
-    <p class="message">
-        Every moment with you<br>
-        is a beautiful memory. ❤️
-    </p>
+    <!-- TEN PHOTO MEMORIES -->
+
+    <div class="gallery">
+
+        <div class="memory-card">
+            <img src="memory1.jpeg" alt="Our memory 1">
+            <h2>Our Beginning ❤️</h2>
+            <p>The beautiful beginning of our forever journey.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory2.jpeg" alt="Our memory 2">
+            <h2>Our First Meeting 🌹</h2>
+            <p>Mogallamuru — the place where our story began.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory3.jpeg" alt="Our memory 3">
+            <h2>My Favourite Person 🥰</h2>
+            <p>With you, even ordinary moments become special.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory4.jpeg" alt="Our memory 4">
+            <h2>Our First Flight ✈️</h2>
+            <p>My first flight experience to Dubai with you. A memory forever.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory5.jpeg" alt="Our memory 5">
+            <h2>Little Happiness 💕</h2>
+            <p>Your smile makes every day more beautiful.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory6.jpeg" alt="Our memory 6">
+            <h2>Beautiful Moments ❤️</h2>
+            <p>Every moment spent together is precious to me.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory7.jpeg" alt="Our memory 7">
+            <h2>My Best Companion 🌸</h2>
+            <p>Thank you for always standing beside me.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory8.jpeg" alt="Our memory 8">
+            <h2>Our Adventures ✨</h2>
+            <p>May we always explore the world together.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory9.jpeg" alt="Our memory 9">
+            <h2>Forever Memories 💖</h2>
+            <p>So many memories made, and so many more to come.</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="memory10.jpeg" alt="Our memory 10">
+            <h2>Forever Together 💍</h2>
+            <p>No matter where life takes us, I want you by my side.</p>
+        </div>
+
+    </div>
+
+    <!-- FINAL MESSAGE -->
+
+    <div class="final-message">
+        Our story is my favourite story. ❤️<br>
+        And I want a million more memories with you.
+    </div>
 
     <div class="date">
         23 • 11 • 2023
     </div>
 
-    <div class="bottom-text">
-        Forever Together ❤️
-    </div>
+    <a href="letter.html" class="letter-button">
+        Read My Letter ❤️
+    </a>
 
 </div>
+
+<!-- MUSIC CONTROL -->
+
+<script>
+
+function toggleMusic() {
+
+    const song = document.getElementById("loveSong");
+    const button = document.getElementById("musicButton");
+
+    if (song.paused) {
+
+        song.play().then(() => {
+            button.innerHTML = "⏸ Pause Our Song ❤️";
+        }).catch(() => {
+            button.innerHTML = "🎵 Play Dheema Dheema ❤️";
+            alert("Please check that the MP3 file is uploaded correctly.");
+        });
+
+    } else {
+
+        song.pause();
+        button.innerHTML = "🎵 Play Dheema Dheema ❤️";
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>
