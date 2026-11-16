@@ -10,15 +10,20 @@
 
 <style>
 
+/* RESET */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BACKGROUND */
+
 body {
     min-height: 100vh;
     overflow-x: hidden;
+
     font-family: Georgia, "Times New Roman", serif;
 
     background:
@@ -31,27 +36,38 @@ body {
     position: relative;
 }
 
+/* OUTER BORDER */
+
 body::before {
     content: "";
     position: fixed;
     inset: 15px;
-    border: 1px solid rgba(180,120,100,0.4);
+
+    border: 1px solid rgba(255,255,255,0.6);
     border-radius: 25px;
+
     pointer-events: none;
     z-index: 5;
 }
 
-/* FALLING ROSE PETALS */
+/* FALLING PETALS */
 
 .petal {
     position: fixed;
     top: -35px;
+
     width: 17px;
     height: 24px;
 
-    background: linear-gradient(135deg, #8909de, #8909de, #8909de);
+    background: linear-gradient(
+        135deg,
+        #c084fc,
+        #8909de,
+        #6231bd
+    );
 
     border-radius: 80% 0 80% 0;
+
     pointer-events: none;
     z-index: 2;
 
@@ -59,6 +75,7 @@ body::before {
 }
 
 @keyframes fall {
+
     0% {
         transform: translateY(-40px) rotate(0deg);
         opacity: 0;
@@ -69,7 +86,11 @@ body::before {
     }
 
     100% {
-        transform: translateY(110vh) translateX(35px) rotate(360deg);
+        transform:
+            translateY(110vh)
+            translateX(35px)
+            rotate(360deg);
+
         opacity: 0;
     }
 }
@@ -79,36 +100,46 @@ body::before {
 .container {
     position: relative;
     z-index: 3;
+
     max-width: 950px;
     margin: auto;
     padding: 15px;
 }
 
+/* HEADINGS */
+
 .small-heading {
     color: #f05467;
+
     font-size: 16px;
     letter-spacing: 5px;
+
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
 h1 {
     color: #9d6267;
+
     font-size: clamp(38px, 7vw, 65px);
     font-weight: normal;
+
     margin-bottom: 12px;
 }
 
 .names {
     color: #493b3e;
+
     font-size: clamp(22px, 4vw, 32px);
     margin-bottom: 25px;
 }
 
 .intro {
     color: #80676a;
+
     font-size: 18px;
     line-height: 1.7;
+
     margin-bottom: 25px;
 }
 
@@ -119,21 +150,35 @@ h1 {
 }
 
 .music-player button {
-    background: linear-gradient(135deg, #d6a18e, #a96c70);
+    background: linear-gradient(
+        135deg,
+        #d6a18e,
+        #a96c70
+    );
+
     color: white;
     border: none;
+
     padding: 14px 25px;
     border-radius: 30px;
+
     font-size: 16px;
     cursor: pointer;
+
     box-shadow: 0 5px 15px rgba(130,65,65,0.2);
+}
+
+.music-player button:hover {
+    transform: scale(1.05);
 }
 
 /* PHOTO GALLERY */
 
 .gallery {
     display: grid;
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 28px;
     margin: 35px auto;
 }
@@ -142,49 +187,92 @@ h1 {
 
 .memory-card {
     background: rgba(255,255,255,0.85);
+
     padding: 12px;
 
     border: 2px solid #6231bd;
     border-radius: 20px;
 
-    box-shadow: 0 10px 25px rgba(130,65,65,0.15);
+    box-shadow: 0 10px 25px rgba(70,40,100,0.2);
 
     transition: transform 0.3s ease;
+
+    overflow: hidden;
 }
 
 .memory-card:hover {
     transform: translateY(-6px);
 }
 
+/* BLURRED IMAGE BACKGROUND */
 
-.memory-card img {
-    display: block;
+.memory-photo {
+    position: relative;
+
     width: 100%;
     height: 280px;
+
+    overflow: hidden;
+    border-radius: 13px;
+
+    background: #f8e3e3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BLURRED PHOTO */
+
+.memory-photo::before {
+    content: "";
+
+    position: absolute;
+    inset: -20px;
+
+    background-image: var(--photo);
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(18px);
+    transform: scale(1.15);
+
+    opacity: 0.85;
+}
+
+/* ORIGINAL PHOTO */
+
+.memory-photo img {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
     object-fit: contain;
     object-position: center;
-    background: #fff7f5;
-    border-radius: 13px;
-    border: 2px solid #35225e;
+
+    display: block;
+    border-radius: 10px;
 }
-@media (max-width: 600px) {
-    .memory-card img {
-        height: 180px;
-        object-fit: contain;
-    }
-}
+
+/* PHOTO TITLES */
 
 .memory-card h2 {
     color: #50257a;
+
     font-size: 21px;
     font-weight: normal;
+
     margin: 15px 0 8px;
 }
 
 .memory-card p {
     color: #7644c7;
+
     font-size: 15px;
     line-height: 1.7;
+
     padding: 0 5px 10px;
 }
 
@@ -192,13 +280,16 @@ h1 {
 
 .final-message {
     color: #402669;
+
     font-size: 25px;
     line-height: 1.7;
+
     margin-top: 45px;
 }
 
 .date {
     color: #382769;
+
     letter-spacing: 3px;
     margin-top: 20px;
 }
@@ -207,6 +298,7 @@ h1 {
 
 .letter-button {
     display: inline-block;
+
     margin-top: 30px;
     padding: 14px 30px;
 
@@ -215,6 +307,7 @@ h1 {
 
     text-decoration: none;
     border-radius: 30px;
+
     font-size: 16px;
     transition: 0.3s;
 }
@@ -224,12 +317,16 @@ h1 {
     transform: scale(1.05);
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 600px) {
 
     body {
         padding: 35px 10px 50px;
+    }
+
+    .container {
+        padding: 10px 3px;
     }
 
     .gallery {
@@ -241,8 +338,8 @@ h1 {
         padding: 7px;
     }
 
-    .memory-card img {
-        height: 155px;
+    .memory-photo {
+        height: 180px;
     }
 
     .memory-card h2 {
@@ -260,14 +357,19 @@ h1 {
     .final-message {
         font-size: 20px;
     }
+
+    .music-player button {
+        font-size: 14px;
+    }
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- ROSE PETALS -->
+<!-- FALLING PURPLE PETALS -->
 
 <div class="petal" style="left:5%;animation-duration:9s;"></div>
 <div class="petal" style="left:15%;animation-duration:12s;animation-delay:2s;"></div>
@@ -280,6 +382,8 @@ h1 {
 <div class="petal" style="left:85%;animation-duration:9s;animation-delay:2s;"></div>
 <div class="petal" style="left:95%;animation-duration:11s;animation-delay:4s;"></div>
 
+
+<!-- MAIN CONTENT -->
 
 <div class="container">
 
@@ -298,6 +402,7 @@ h1 {
         Every memory becomes special because you are in it. ❤️
     </p>
 
+
     <!-- MUSIC PLAYER -->
 
     <div class="music-player">
@@ -312,88 +417,238 @@ h1 {
 
     </div>
 
-    <!-- TEN PHOTO MEMORIES -->
+
+    <!-- TEN PHOTO GALLERY -->
 
     <div class="gallery">
 
+        <!-- PHOTO 1 -->
+
         <div class="memory-card">
-            <img src="memory1.jpeg" alt="Our memory 1">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory1.jpeg')">
+
+                <img src="memory1.jpeg" alt="Our beginning">
+
+            </div>
+
             <h2>Our Beginning ❤️</h2>
-            <p>The beautiful beginning of our forever journey.</p>
+
+            <p>
+                The beautiful beginning of our journey.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 2 -->
+
         <div class="memory-card">
-            <img src="memory2.jpeg" alt="Our memory 2">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory2.jpeg')">
+
+                <img src="memory2.jpeg" alt="Our first meeting">
+
+            </div>
+
             <h2>Our First Meeting 🌹</h2>
-            <p>Mogallamuru — the place where our story began.</p>
+
+            <p>
+                Mogallamuru — the place where our story began.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 3 -->
+
         <div class="memory-card">
-            <img src="memory3.jpeg" alt="Our memory 3">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory3.jpeg')">
+
+                <img src="memory3.jpeg" alt="My favourite person">
+
+            </div>
+
             <h2>My Favourite Person 🥰</h2>
-            <p>With you, even ordinary moments become special.</p>
+
+            <p>
+                With you, even ordinary moments become special.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 4 -->
+
         <div class="memory-card">
-            <img src="memory4.jpeg" alt="Our memory 4">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory4.jpeg')">
+
+                <img src="memory4.jpeg" alt="Our first flight">
+
+            </div>
+
             <h2>Our First Flight ✈️</h2>
-            <p>My first flight experience to Dubai with you. A memory forever.</p>
+
+            <p>
+                My first flight experience to Dubai with you.
+                A memory I will cherish forever.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 5 -->
+
         <div class="memory-card">
-            <img src="memory5.jpeg" alt="Our memory 5">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory5.jpeg')">
+
+                <img src="memory5.jpeg" alt="Little happiness">
+
+            </div>
+
             <h2>Little Happiness 💕</h2>
-            <p>Your smile makes every day more beautiful.</p>
+
+            <p>
+                Your smile makes every day more beautiful.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 6 -->
+
         <div class="memory-card">
-            <img src="memory6.jpeg" alt="Our memory 6">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory6.jpeg')">
+
+                <img src="memory6.jpeg" alt="Beautiful moments">
+
+            </div>
+
             <h2>Beautiful Moments ❤️</h2>
-            <p>Every moment spent together is precious to me.</p>
+
+            <p>
+                Every moment spent together is precious to me.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 7 -->
+
         <div class="memory-card">
-            <img src="memory7.jpeg" alt="Our memory 7">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory7.jpeg')">
+
+                <img src="memory7.jpeg" alt="My best companion">
+
+            </div>
+
             <h2>My Best Companion 🌸</h2>
-            <p>Thank you for always standing beside me.</p>
+
+            <p>
+                Thank you for always standing beside me.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 8 -->
+
         <div class="memory-card">
-            <img src="memory8.jpeg" alt="Our memory 8">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory8.jpeg')">
+
+                <img src="memory8.jpeg" alt="Our adventures">
+
+            </div>
+
             <h2>Our Adventures ✨</h2>
-            <p>May we always explore the world together.</p>
+
+            <p>
+                May we always explore the world together.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 9 -->
+
         <div class="memory-card">
-            <img src="memory9.jpeg" alt="Our memory 9">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory9.jpeg')">
+
+                <img src="memory9.jpeg" alt="Forever memories">
+
+            </div>
+
             <h2>Forever Memories 💖</h2>
-            <p>So many memories made, and so many more to come.</p>
+
+            <p>
+                So many memories made, and so many more to come.
+            </p>
+
         </div>
 
+
+        <!-- PHOTO 10 -->
+
         <div class="memory-card">
-            <img src="memory10.jpeg" alt="Our memory 10">
+
+            <div class="memory-photo"
+                 style="--photo: url('memory10.jpeg')">
+
+                <img src="memory10.jpeg" alt="Forever together">
+
+            </div>
+
             <h2>Forever Together 💍</h2>
-            <p>No matter where life takes us, I want you by my side.</p>
+
+            <p>
+                I want you by my side forever.
+            </p>
+
         </div>
 
     </div>
+
 
     <!-- FINAL MESSAGE -->
 
     <div class="final-message">
+
         Our story is my favourite story. ❤️<br>
+
         And I want a million more memories with you.
+
     </div>
+
 
     <div class="date">
         23 • 11 • 2023
     </div>
+
+
+    <!-- LETTER PAGE BUTTON -->
 
     <a href="letter.html" class="letter-button">
         Read My Letter ❤️
     </a>
 
 </div>
+
 
 <!-- MUSIC CONTROL -->
 
@@ -402,20 +657,27 @@ h1 {
 function toggleMusic() {
 
     const song = document.getElementById("loveSong");
+
     const button = document.getElementById("musicButton");
 
     if (song.paused) {
 
         song.play().then(() => {
+
             button.innerHTML = "⏸ Pause Our Song ❤️";
+
         }).catch(() => {
+
             button.innerHTML = "🎵 Play Dheema Dheema ❤️";
+
             alert("Please check that the MP3 file is uploaded correctly.");
+
         });
 
     } else {
 
         song.pause();
+
         button.innerHTML = "🎵 Play Dheema Dheema ❤️";
 
     }
