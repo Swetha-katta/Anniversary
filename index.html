@@ -1,277 +1,648 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Surprise For You ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Our Beautiful Memories ❤️</title>
 
-        body {
-            min-height: 100vh;
-            overflow: hidden;
-            font-family: Georgia, "Times New Roman", serif;
-            background: #222;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* MAIN PAGE */
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #fff0f7;
 
-        .surprise-page {
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100svh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: #222;
-        }
+    background:
+        linear-gradient(rgba(24, 8, 35, 0.4), rgba(24, 8, 35, 0.4)),
+        url("anniversary-bg.png") center/cover fixed no-repeat;
+}
 
-        /* BLURRED PHOTO ON THE SIDES */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 10px;
+    border: 1px solid rgba(255, 225, 245, 0.45);
+    pointer-events: none;
+    z-index: 10;
+}
 
-        .surprise-page::before {
-            content: "";
-            position: absolute;
-            inset: -20px;
-            background-image: url("./background.jpeg");
-            background-size: cover;
-            background-position: center;
-            filter: blur(12px) brightness(0.65);
-            z-index: 0;
-        }
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 0 60px;
+    position: relative;
+    z-index: 2;
+}
 
-        /* ORIGINAL FULL PHOTO IN THE CENTRE */
+.page {
+    display: none;
+    animation: fadeIn 0.8s ease;
+}
 
-        .surprise-page::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url("./background.jpeg");
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 1;
-        }
+.page.active {
+    display: block;
+}
 
-        /* TEXT CONTENT */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .content {
-            position: relative;
-            z-index: 5;
-            width: 100%;
-            padding: 25px;
-        }
+.eyebrow {
+    color: #ffb8d5;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+}
 
-        .small-text {
-            font-size: 18px;
-            letter-spacing: 5px;
-            color: white;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px #737375;
-        }
+h1 {
+    color: #fff0f7;
+    font-size: clamp(38px, 7vw, 76px);
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #a85a9d, 0 0 20px #5c246d;
+}
 
-        .main-title {
-            font-size: clamp(35px, 6vw, 75px);
-            font-weight: normal;
-            color: white;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px #737375;
-        }
+.names {
+    color: #ffd1e8;
+    font-size: clamp(25px, 4vw, 38px);
+    margin-bottom: 22px;
+}
 
-        .heart {
-            font-size: 55px;
-            color: #ffb6c8;
-            margin-bottom: 25px;
-            animation: heartbeat 1.5s infinite;
-            text-shadow: 2px 2px 8px #737375;
-        }
+.intro {
+    font-size: 20px;
+    line-height: 1.8;
+    text-shadow: 1px 2px 8px #250c35;
+}
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
+/* Music */
+.music-player {
+    margin: 25px auto 35px;
+}
 
-        .sub-text {
-            font-size: 20px;
-            color: white;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 8px #737375;
-        }
+.music-button, .letter-button, .back-button {
+    border: 2px solid #f6c4df;
+    background: linear-gradient(135deg, #772b80, #b54b85);
+    color: white;
+    border-radius: 40px;
+    padding: 14px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(255,170,220,0.35);
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
 
-        /* BUTTON */
+.music-button:hover, .letter-button:hover, .back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ed9ccf;
+}
 
-        .click-button {
-            border: none;
-            background: #03132b;
-            color: white;
-            padding: 17px 45px;
-            border-radius: 50px;
-            font-family: Georgia, serif;
-            font-size: 18px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
 
-        .click-button:hover {
-            transform: scale(1.08);
-            background: #5e062e;
-        }
+.memory-card {
+    overflow: hidden;
+    border: 2px solid rgba(255,220,240,0.85);
+    border-radius: 18px;
+    background: rgba(255,238,247,0.94);
+    box-shadow: 0 5px 20px rgba(25,5,35,0.4);
+    transition: 0.3s;
+}
 
-        /* DECORATIONS */
+.memory-card:hover {
+    transform: translateY(-5px);
+}
 
-        .decor {
-            position: absolute;
-            z-index: 3;
-            font-size: 30px;
-            color: white;
-            opacity: 0.7;
-            text-shadow: 2px 2px 8px #000;
-        }
+.memory-photo {
+    height: 260px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #321b3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .decor1 {
-            top: 15%;
-            left: 12%;
-        }
+.memory-photo::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    background-image: var(--photo);
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+    transform: scale(1.12);
+}
 
-        .decor2 {
-            top: 25%;
-            right: 12%;
-        }
+.memory-photo img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-        .decor3 {
-            bottom: 15%;
-            left: 18%;
-        }
+.memory-card h3 {
+    color: #54245f;
+    font-size: 21px;
+    padding: 12px 8px 5px;
+}
 
-        .decor4 {
-            bottom: 20%;
-            right: 18%;
-        }
+.memory-card p {
+    color: #68466c;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 14px 15px;
+}
 
-        /* MOBILE SCREEN */
+.closing {
+    margin: 45px auto 25px;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-style: italic;
+    line-height: 1.7;
+    text-shadow: 0 0 12px #4d174e;
+}
 
-        @media (max-width: 600px) {
-            .content {
-                padding: 15px;
-            }
+.anniversary-date {
+    color: #ffe0ef;
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 25px 0;
+}
 
-            .main-title {
-                font-size: clamp(30px, 9vw, 48px);
-            }
+/* Letter page */
+.letter-box {
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 40px;
+    background: rgba(255,238,247,0.94);
+    color: #54245f;
+    border: 3px solid #f6c4df;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,180,220,0.4);
+    text-align: left;
+    line-height: 2;
+    font-size: 18px;
+}
 
-            .small-text {
-                font-size: 12px;
-                letter-spacing: 3px;
-            }
+.letter-title {
+    text-align: center;
+    font-size: 36px;
+    color: #a13b79;
+    margin-bottom: 25px;
+}
 
-            .sub-text {
-                font-size: 16px;
-            }
+.letter-box p {
+    margin-bottom: 18px;
+}
 
-            .heart {
-                font-size: 42px;
-            }
+.signature {
+    text-align: right;
+    font-size: 23px;
+    color: #a13b79;
+    font-style: italic;
+    margin-top: 25px;
+}
 
-            .click-button {
-                padding: 14px 30px;
-                font-size: 16px;
-            }
-        }
+.letter-heart {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 20px;
+}
 
-    </style>
+/* Rose petals */
+.petal {
+    position: fixed;
+    top: -30px;
+    width: 16px;
+    height: 22px;
+    background: linear-gradient(135deg,#ffb0d0,#c2185b,#7b1748);
+    border-radius: 100% 0 100% 0;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 20;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.9; }
+    50% {
+        transform: translateY(50vh) translateX(50px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(110vh) translateX(-40px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+@media(max-width:600px) {
+    .container {
+        width: 94%;
+        padding-top: 35px;
+    }
+
+    .eyebrow {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .gallery {
+        gap: 10px;
+    }
+
+    .memory-photo {
+        height: 170px;
+    }
+
+    .memory-card {
+        border-radius: 12px;
+    }
+
+    .memory-card h3 {
+        font-size: 14px;
+        padding: 9px 4px 4px;
+    }
+
+    .memory-card p {
+        font-size: 12px;
+        padding: 0 6px 10px;
+    }
+
+    .music-button, .letter-button, .back-button {
+        font-size: 15px;
+        padding: 12px 22px;
+    }
+
+    .anniversary-date {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .letter-box {
+        padding: 22px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .letter-title {
+        font-size: 27px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="surprise-page">
+<!-- ONE MUSIC PLAYER FOR BOTH PAGES -->
+<audio id="loveSong" loop preload="none">
+    <source src="%E2%99%A5%EF%B8%8F.mp3" type="audio/mpeg">
+</audio>
 
-        <div class="decor decor1">♡</div>
-        <div class="decor decor2">✦</div>
-        <div class="decor decor3">♡</div>
-        <div class="decor decor4">✦</div>
+<div class="container">
 
-        <div class="content">
+    <!-- PAGE 2: MEMORIES -->
+    <section id="memoriesPage" class="page active">
 
-            <div class="heart">♡</div>
+        <header>
+            <div class="eyebrow">OUR JOURNEY TOGETHER</div>
 
-            <div class="small-text">
-                A little surprise for you
+            <h1>Our Beautiful Memories</h1>
+
+            <div class="names">
+                Swetha ❤️ Satya Prakash
             </div>
 
-            <h1 class="main-title">
-                SATYA PRAKASH GARU<br>
-                HAPPY WEDDING<br>
-               ANNIVERSARY
-            </h1>
+            <div class="intro">
+                Every picture tells a story.<br>
+                Every memory becomes special because you are in it. ❤️
+            </div>
+        </header>
 
-            <p class="sub-text">
-                Made with all my love ❤️
+        <div class="music-player">
+            <button class="music-button" id="musicButton"
+                    onclick="toggleMusic()">
+                🎵 Play Music ❤️
+            </button>
+        </div>
+
+        <section class="gallery">
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory1.jpeg')">
+                    <img src="memory1.jpeg" alt="Our Beginning">
+                </div>
+                <h3>Our Beginning ❤️</h3>
+                <p>The beautiful beginning of our journey.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory2.jpeg')">
+                    <img src="memory2.jpeg" alt="Our First Meeting">
+                </div>
+                <h3>Our First Meeting 🌹</h3>
+                <p>Mogallamuru — the place where our story began.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory3.jpeg')">
+                    <img src="memory3.jpeg" alt="My Favourite Person">
+                </div>
+                <h3>My Favourite Person 🥰</h3>
+                <p>With you, even ordinary moments become special.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory4.jpeg')">
+                    <img src="memory4.jpeg" alt="Our First Flight">
+                </div>
+                <h3>Our First Flight ✈️</h3>
+                <p>My first flight experience to Dubai with you. A memory I will cherish forever.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory5.jpeg')">
+                    <img src="memory5.jpeg" alt="Little Happiness">
+                </div>
+                <h3>Little Happiness 💕</h3>
+                <p>Your smile makes every day more beautiful.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory6.jpeg')">
+                    <img src="memory6.jpeg" alt="Beautiful Moments">
+                </div>
+                <h3>Beautiful Moments ❤️</h3>
+                <p>Every moment spent together is precious to me.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory7.jpeg')">
+                    <img src="memory7.jpeg" alt="My Best Companion">
+                </div>
+                <h3>My Best Companion 🌸</h3>
+                <p>Thank you for always standing beside me.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory8.jpeg')">
+                    <img src="memory8.jpeg" alt="Our Adventures">
+                </div>
+                <h3>Our Adventures ✨</h3>
+                <p>May we always explore the world together.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory9.jpeg')">
+                    <img src="memory9.jpeg" alt="Forever Memories">
+                </div>
+                <h3>Forever Memories 💖</h3>
+                <p>So many memories made, and so many more to come.</p>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-photo" style="--photo:url('memory10.jpeg')">
+                    <img src="memory10.jpeg" alt="Forever Together">
+                </div>
+                <h3>Forever Together 💍</h3>
+                <p>I want you by my side forever.</p>
+            </div>
+
+        </section>
+
+        <div class="closing">
+            Our story is my favourite story. ❤️<br>
+            And I want a million more memories with you.
+        </div>
+
+        <div class="anniversary-date">
+            ♡ 23 • 11 • 2023 ♡
+        </div>
+
+        <button class="letter-button" onclick="showLetter()">
+            Read My Letter ❤️
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 3: LOVE LETTER -->
+    <section id="letterPage" class="page">
+
+        <div class="eyebrow">A LETTER FROM MY HEART</div>
+
+        <h1>My Love ❤️</h1>
+
+        <div class="names">
+            To My Dear Satya Prakash
+        </div>
+
+        <div class="letter-box">
+
+            <div class="letter-title">
+                To My Forever Love ❤️
+            </div>
+
+            <p>My dear Satya,</p>
+
+            <p>
+                I don't know where to begin because there are
+                so many feelings in my heart that words can
+                never completely express.
             </p>
 
-            <button
-                class="click-button"
-                onclick="openSurprise()">
-                CLICK THIS ❤️
-            </button>
+            <p>
+                From the day we met in Mogallamuru,
+                my life started a beautiful journey with you.
+                Every moment, every smile and every little
+                memory became special.
+            </p>
+
+            <p>
+                Our first flight together to Dubai,
+                all our adventures and the little moments
+                we share are memories I will keep close
+                to my heart forever.
+            </p>
+
+            <p>
+                Thank you for being my partner,
+                my best friend and my biggest support.
+                Your calm nature and the way you stand
+                beside me mean more than you know.
+            </p>
+
+            <p>
+                I may not express my love every day,
+                but please remember that you are
+                very special to me.
+            </p>
+
+            <p>
+                I wish to create thousands of beautiful
+                memories with you, travel together,
+                laugh together and grow old together.
+            </p>
+
+            <p>
+                No matter what life brings,
+                I want us to hold each other's hands
+                and face everything together.
+            </p>
+
+            <p>
+                Happy Anniversary, my love!
+                Thank you for being my forever person.
+            </p>
+
+            <p>
+                I love you today, tomorrow and always. ❤️
+            </p>
+
+            <div class="signature">
+                Forever Yours,<br>
+                Your Swetha ❤️
+            </div>
+
+            <div class="letter-heart">
+                💕 🌹 💕
+            </div>
 
         </div>
 
-    </div>
+        <div class="anniversary-date">
+            ♡ 23 • 11 • 2023 ♡
+        </div>
 
-    <script>
-        function openSurprise() {
-            window.location.href = "anniversary.html";
-        }
-    </script>
-    <script>
-const musicFile = "%E2%99%A5%EF%B8%8F.mp3";
+        <button class="back-button" onclick="showMemories()">
+            ← Back to Our Memories
+        </button>
 
-let song = new Audio(musicFile);
-song.loop = true;
+    </section>
 
-// Restore music position
-const savedTime = sessionStorage.getItem("musicTime");
-const wasPlaying = sessionStorage.getItem("musicPlaying");
+</div>
 
-song.addEventListener("loadedmetadata", () => {
-    if (savedTime) {
-        song.currentTime = Number(savedTime);
+
+<script>
+
+/* SAME MUSIC PLAYER FOR BOTH SECTIONS */
+
+const song = document.getElementById("loveSong");
+const musicButton = document.getElementById("musicButton");
+
+function toggleMusic() {
+
+    if (song.paused) {
+
+        song.play()
+        .then(() => {
+            musicButton.innerHTML = "⏸ Pause Music ❤️";
+        })
+        .catch(error => {
+            console.log("Music error:", error);
+            alert("Please check your music file ♥️.mp3");
+        });
+
+    } else {
+
+        song.pause();
+        musicButton.innerHTML = "🎵 Play Music ❤️";
+
     }
+}
 
-    if (wasPlaying === "true") {
-        song.play().catch(() => {});
-    }
+/* Change page WITHOUT reloading the website */
+
+function showLetter() {
+
+    document.getElementById("memoriesPage").classList.remove("active");
+
+    document.getElementById("letterPage").classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+function showMemories() {
+
+    document.getElementById("letterPage").classList.remove("active");
+
+    document.getElementById("memoriesPage").classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+/* Keep music button status updated */
+
+song.addEventListener("play", () => {
+    musicButton.innerHTML = "⏸ Pause Music ❤️";
 });
 
-// Save music position
-setInterval(() => {
-    if (!song.paused) {
-        sessionStorage.setItem("musicTime", song.currentTime);
-        sessionStorage.setItem("musicPlaying", "true");
-    }
-}, 500);
-
-// Save before leaving page
-window.addEventListener("pagehide", () => {
-    sessionStorage.setItem("musicTime", song.currentTime);
-    sessionStorage.setItem("musicPlaying", String(!song.paused));
+song.addEventListener("pause", () => {
+    musicButton.innerHTML = "🎵 Play Music ❤️";
 });
+
+/* Falling rose petals */
+
+function createPetal() {
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.style.left = Math.random() * 100 + "vw";
+
+    petal.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+    const size = 10 + Math.random() * 12;
+
+    petal.style.width = size + "px";
+    petal.style.height = (size * 1.4) + "px";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 12000);
+
+}
+
+setInterval(createPetal, 300);
+
 </script>
 
 </body>
 </html>
-
