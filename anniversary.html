@@ -453,14 +453,14 @@ function toggleMusic() {
     if (song.paused) {
         song.play()
             .then(() => {
-                musicButton.innerHTML = "⏸ Pause Dheema Dheema ❤️";
+                musicButton.innerHTML = "⏸ Pause ❤️.mp3";
             })
             .catch(() => {
                 alert("Please check that dheema-dheema.mp3 is uploaded to your GitHub folder.");
             });
     } else {
         song.pause();
-        musicButton.innerHTML = "🎵 Play Dheema Dheema ❤️";
+        musicButton.innerHTML = "❤️.mp3";
     }
 }
 
