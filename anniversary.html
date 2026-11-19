@@ -31,7 +31,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Decorative border */
 body::before {
     content: "";
     position: fixed;
@@ -41,22 +40,17 @@ body::before {
     z-index: 10;
 }
 
-/* Main container */
 .container {
     width: 92%;
     max-width: 1100px;
     margin: 0 auto;
     padding: 30px 0 50px;
-    text-align: center;
     position: relative;
     z-index: 2;
 }
 
-/* Heading section */
 header {
-    text-align: center;
-    margin: 0 auto 30px;
-    width: 100%;
+    margin-bottom: 30px;
 }
 
 .eyebrow {
@@ -72,16 +66,13 @@ h1 {
     font-size: clamp(38px, 7vw, 76px);
     font-weight: normal;
     margin-bottom: 15px;
-    text-shadow:
-        0 0 8px #a85a9d,
-        0 0 20px #5c246d;
+    text-shadow: 0 0 8px #a85a9d, 0 0 20px #5c246d;
 }
 
 .names {
     color: #ffd1e8;
     font-size: clamp(25px, 4vw, 38px);
     margin-bottom: 22px;
-    text-shadow: 0 0 10px #4b174f;
 }
 
 .intro {
@@ -137,7 +128,7 @@ h1 {
     transform: translateY(-5px);
 }
 
-/* Photo frame with blurred background */
+/* Blurred photo background */
 .memory-photo {
     height: 260px;
     width: 100%;
@@ -169,7 +160,6 @@ h1 {
     object-fit: contain;
 }
 
-/* Photo descriptions */
 .memory-card h3 {
     color: #54245f;
     font-size: 21px;
@@ -183,10 +173,9 @@ h1 {
     padding: 0 14px 15px;
 }
 
-/* Ending section */
+/* Ending */
 .closing {
     margin: 45px auto 25px;
-    text-align: center;
     color: #fff0f7;
     font-size: clamp(22px, 3.5vw, 30px);
     font-style: italic;
@@ -199,7 +188,6 @@ h1 {
     font-size: 25px;
     letter-spacing: 5px;
     margin: 25px 0;
-    text-shadow: 0 0 10px #a64c9c;
 }
 
 /* Letter button */
@@ -222,7 +210,6 @@ h1 {
 }
 
 /* Falling rose petals */
-/* Falling rose petals */
 .petal {
     position: fixed;
     top: -30px;
@@ -242,22 +229,19 @@ h1 {
         transform: translateY(-30px) translateX(0) rotate(0deg);
         opacity: 0;
     }
-
     10% {
         opacity: 0.9;
     }
-
     50% {
         transform: translateY(50vh) translateX(50px) rotate(180deg);
     }
-
     100% {
         transform: translateY(110vh) translateX(-40px) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* Mobile display */
+/* Mobile */
 @media (max-width: 600px) {
     .container {
         width: 94%;
@@ -334,13 +318,14 @@ h1 {
 
     <!-- Music -->
     <div class="music-player">
-        <button class="music-button" id="musicButton" onclick="toggleMusic()">
-            ❤️
+        <button class="music-button" id="musicButton"
+                onclick="toggleMusic()">
+            🎵 Play Music ❤️
         </button>
     </div>
 
-    <audio id="loveSong" loop>
-        <source src="❤️.mp3" type="audio/mpeg">
+    <audio id="loveSong" loop preload="none">
+        <source src="%E2%99%A5%EF%B8%8F.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Photo Gallery -->
@@ -450,22 +435,34 @@ const song = document.getElementById("loveSong");
 const musicButton = document.getElementById("musicButton");
 
 function toggleMusic() {
+
     if (song.paused) {
+
         song.play()
             .then(() => {
-                musicButton.innerHTML = "⏸ Pause ❤️.mp3";
+                musicButton.innerHTML = "⏸ Pause Music ❤️";
             })
-            .catch(() => {
-                alert("Please check that ❤️.mp3 is uploaded to your GitHub folder.");
+            .catch((error) => {
+                console.error("Music error:", error);
+                alert("Music could not play. Please check your GitHub music file.");
             });
+
     } else {
+
         song.pause();
-        musicButton.innerHTML = "❤️.mp3";
+        musicButton.innerHTML = "🎵 Play Music ❤️";
+
     }
 }
 
+/* Update button if music finishes or is paused */
+song.addEventListener("pause", () => {
+    musicButton.innerHTML = "🎵 Play Music ❤️";
+});
+
 /* Falling rose petals */
 function createPetal() {
+
     const petal = document.createElement("div");
     petal.className = "petal";
 
@@ -473,6 +470,7 @@ function createPetal() {
     petal.style.animationDuration = (6 + Math.random() * 5) + "s";
 
     const size = 10 + Math.random() * 12;
+
     petal.style.width = size + "px";
     petal.style.height = (size * 1.4) + "px";
 
