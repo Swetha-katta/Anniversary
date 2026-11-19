@@ -320,7 +320,7 @@ h1 {
     <div class="music-player">
         <button class="music-button" id="musicButton"
                 onclick="toggleMusic()">
-            🎵 Play Music ❤️
+            ❤️
         </button>
     </div>
 
@@ -450,14 +450,14 @@ function toggleMusic() {
     } else {
 
         song.pause();
-        musicButton.innerHTML = "🎵 Play Music ❤️";
+        musicButton.innerHTML = "❤️";
 
     }
 }
 
 /* Update button if music finishes or is paused */
 song.addEventListener("pause", () => {
-    musicButton.innerHTML = "🎵 Play Music ❤️";
+    musicButton.innerHTML = "❤️";
 });
 
 /* Falling rose petals */
