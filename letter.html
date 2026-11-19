@@ -381,16 +381,44 @@
 
         <!-- NEXT PAGE -->
 
-        <div class="next-button">
-
-            <a href="memories.html">
-                Continue Our Story →
-            </a>
-
-        </div>
+      
 
 
     </div>
+    <script>
+const musicFile = "%E2%99%A5%EF%B8%8F.mp3";
+
+let song = new Audio(musicFile);
+song.loop = true;
+
+// Restore music position
+const savedTime = sessionStorage.getItem("musicTime");
+const wasPlaying = sessionStorage.getItem("musicPlaying");
+
+song.addEventListener("loadedmetadata", () => {
+    if (savedTime) {
+        song.currentTime = Number(savedTime);
+    }
+
+    if (wasPlaying === "true") {
+        song.play().catch(() => {});
+    }
+});
+
+// Save music position
+setInterval(() => {
+    if (!song.paused) {
+        sessionStorage.setItem("musicTime", song.currentTime);
+        sessionStorage.setItem("musicPlaying", "true");
+    }
+}, 500);
+
+// Save before leaving page
+window.addEventListener("pagehide", () => {
+    sessionStorage.setItem("musicTime", song.currentTime);
+    sessionStorage.setItem("musicPlaying", String(!song.paused));
+});
+</script>
 
 
 </body>
