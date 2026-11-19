@@ -4,8 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Beautiful Memories ❤️</title>
+<title>Our Anniversary Surprise ❤️</title>
 
 <style>
 * {
@@ -17,36 +16,26 @@
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    font-family: Georgia, "Times New Roman", serif;
     text-align: center;
-    color: #fff0f7;
-
-    background:
-        linear-gradient(rgba(24, 8, 35, 0.4), rgba(24, 8, 35, 0.4)),
-        url("anniversary-bg.png") center/cover fixed no-repeat;
+    font-family: Georgia, "Times New Roman", serif;
+    color: white;
+    background: #211b2a;
 }
 
 body::before {
     content: "";
     position: fixed;
-    inset: 10px;
-    border: 1px solid rgba(255, 225, 245, 0.45);
-    pointer-events: none;
-    z-index: 10;
-}
-
-.container {
-    width: 92%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 35px 0 60px;
-    position: relative;
-    z-index: 2;
+    inset: -25px;
+    z-index: -2;
+    background: url("background.jpeg") center/cover no-repeat;
+    filter: blur(18px);
+    transform: scale(1.08);
 }
 
 .page {
     display: none;
-    animation: fadeIn 0.8s ease;
+    min-height: 100vh;
+    animation: fadeIn .65s ease;
 }
 
 .page.active {
@@ -54,20 +43,176 @@ body::before {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* PAGE 1 - SURPRISE */
+
+#surprisePage {
+    padding: 0 0 25px;
+}
+
+#surprisePage.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.surprise-card {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url("background.jpeg") center center/cover no-repeat;
+}
+
+.surprise-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.05),
+        rgba(25,12,30,.12),
+        rgba(15,10,25,.18),
+        rgba(255,255,255,.68)
+    );
+}
+
+.surprise-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 35px 14px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: inherit;
+    text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+.surprise-small {
+    font-size: clamp(13px,3vw,22px);
+    letter-spacing: 6px;
+    margin-bottom: 48px;
+}
+
+.surprise-title {
+    font-weight: normal;
+    font-size: clamp(35px,8vw,66px);
+    line-height: 1.16;
+    letter-spacing: 2px;
+    margin-bottom: 42px;
+}
+
+.surprise-message {
+    font-size: clamp(20px,4vw,32px);
+    margin-bottom: 76px;
+}
+
+.click-button {
+    border: 0;
+    border-radius: 60px;
+    background: #06152f;
+    color: white;
+    padding: 17px 42px;
+    font: normal clamp(20px,4vw,30px) Georgia,serif;
+    letter-spacing: 4px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px #10102055;
+    transition: .25s;
+}
+
+.click-button:hover {
+    transform: scale(1.05);
+}
+
+.decor-heart, .decor-sparkle {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.decor-heart {
+    font-size: 50px;
+    color: white;
+}
+
+.heart-one { top: 15%; left: 12%; }
+.heart-two { top: 24%; right: 44%; color: #ff9fc9; }
+.heart-three { bottom: 5%; left: 18%; }
+
+.decor-sparkle {
+    font-size: 38px;
+    color: white;
+    text-shadow: 0 0 12px white;
+}
+
+.sparkle-one { top: 28%; right: 13%; }
+.sparkle-two { bottom: 11%; right: 18%; }
+
+/* MUSIC */
+
+.music-control {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 30;
+    border: 1px solid #f6c4df;
+    border-radius: 40px;
+    padding: 10px 17px;
+    background: linear-gradient(135deg,#772b80,#b54b85);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.action-button {
+    display: inline-block;
+    border: 2px solid #f6c4df;
+    border-radius: 40px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg,#772b80,#b54b85);
+    color: white;
+    font: 18px Georgia,serif;
+    cursor: pointer;
+    box-shadow: 0 0 18px #ed9ccf55;
+    transition: .25s;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+}
+
+/* PAGE 2 - MEMORIES */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 0 70px;
+    position: relative;
+    z-index: 2;
 }
 
 .eyebrow {
     color: #ffb8d5;
-    font-size: 18px;
-    letter-spacing: 8px;
+    font-size: 16px;
+    letter-spacing: 7px;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px #5d1b69;
 }
 
 h1 {
     color: #fff0f7;
-    font-size: clamp(38px, 7vw, 76px);
+    font-size: clamp(38px,7vw,76px);
     font-weight: normal;
     margin-bottom: 15px;
     text-shadow: 0 0 8px #a85a9d, 0 0 20px #5c246d;
@@ -75,7 +220,7 @@ h1 {
 
 .names {
     color: #ffd1e8;
-    font-size: clamp(25px, 4vw, 38px);
+    font-size: clamp(25px,4vw,38px);
     margin-bottom: 22px;
 }
 
@@ -85,44 +230,20 @@ h1 {
     text-shadow: 1px 2px 8px #250c35;
 }
 
-/* Music */
-.music-player {
-    margin: 25px auto 35px;
-}
-
-.music-button, .letter-button, .back-button {
-    border: 2px solid #f6c4df;
-    background: linear-gradient(135deg, #772b80, #b54b85);
-    color: white;
-    border-radius: 40px;
-    padding: 14px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 0 18px rgba(255,170,220,0.35);
-    transition: 0.3s;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.music-button:hover, .letter-button:hover, .back-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #ed9ccf;
-}
-
-/* Gallery */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 22px;
+    margin-top: 25px;
 }
 
 .memory-card {
     overflow: hidden;
-    border: 2px solid rgba(255,220,240,0.85);
+    border: 2px solid #ffdcf0d9;
     border-radius: 18px;
-    background: rgba(255,238,247,0.94);
-    box-shadow: 0 5px 20px rgba(25,5,35,0.4);
-    transition: 0.3s;
+    background: rgba(255,238,247,.95);
+    box-shadow: 0 5px 20px #19052366;
+    transition: .3s;
 }
 
 .memory-card:hover {
@@ -174,10 +295,9 @@ h1 {
 
 .closing {
     margin: 45px auto 25px;
-    font-size: clamp(22px, 3.5vw, 30px);
+    font-size: clamp(22px,3.5vw,30px);
     font-style: italic;
     line-height: 1.7;
-    text-shadow: 0 0 12px #4d174e;
 }
 
 .anniversary-date {
@@ -187,16 +307,17 @@ h1 {
     margin: 25px 0;
 }
 
-/* Letter page */
+/* PAGE 3 - LETTER */
+
 .letter-box {
     max-width: 800px;
     margin: 35px auto;
     padding: 40px;
-    background: rgba(255,238,247,0.94);
+    background: rgba(255,238,247,.95);
     color: #54245f;
     border: 3px solid #f6c4df;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255,180,220,0.4);
+    box-shadow: 0 0 30px #ffb4dc66;
     text-align: left;
     line-height: 2;
     font-size: 18px;
@@ -227,7 +348,8 @@ h1 {
     margin-top: 20px;
 }
 
-/* Rose petals */
+/* ROSE PETALS */
+
 .petal {
     position: fixed;
     top: -30px;
@@ -235,18 +357,19 @@ h1 {
     height: 22px;
     background: linear-gradient(135deg,#ffb0d0,#c2185b,#7b1748);
     border-radius: 100% 0 100% 0;
-    opacity: 0.9;
+    opacity: .9;
     pointer-events: none;
     z-index: 20;
+    box-shadow: 0 0 8px #ff96be80;
     animation: fall linear forwards;
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-30px) translateX(0) rotate(0deg);
+        transform: translateY(-30px) translateX(0) rotate(0);
         opacity: 0;
     }
-    10% { opacity: 0.9; }
+    10% { opacity: .9; }
     50% {
         transform: translateY(50vh) translateX(50px) rotate(180deg);
     }
@@ -256,8 +379,40 @@ h1 {
     }
 }
 
-/* Mobile */
+/* MOBILE */
+
 @media(max-width:600px) {
+
+    .surprise-card {
+        min-height: 100svh;
+        background-position: center center;
+    }
+
+    .surprise-content {
+        padding: 35px 12px 45px;
+    }
+
+    .surprise-small {
+        letter-spacing: 4px;
+        margin-bottom: 48px;
+    }
+
+    .surprise-title {
+        font-size: clamp(34px,8.4vw,58px);
+        letter-spacing: 1px;
+        margin-bottom: 38px;
+    }
+
+    .surprise-message {
+        font-size: 21px;
+        margin-bottom: 72px;
+    }
+
+    .click-button {
+        padding: 15px 32px;
+        letter-spacing: 3px;
+    }
+
     .container {
         width: 94%;
         padding-top: 35px;
@@ -294,8 +449,8 @@ h1 {
         padding: 0 6px 10px;
     }
 
-    .music-button, .letter-button, .back-button {
-        font-size: 15px;
+    .action-button {
+        font-size: 16px;
         padding: 12px 22px;
     }
 
@@ -313,21 +468,71 @@ h1 {
     .letter-title {
         font-size: 27px;
     }
+
+    .music-control {
+        right: 10px;
+        bottom: 10px;
+        font-size: 12px;
+        padding: 9px 13px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ONE MUSIC PLAYER FOR BOTH PAGES -->
+<!-- ONE MUSIC PLAYER FOR ALL THREE PAGES -->
+
 <audio id="loveSong" loop preload="none">
     <source src="%E2%99%A5%EF%B8%8F.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
 
-    <!-- PAGE 2: MEMORIES -->
-    <section id="memoriesPage" class="page active">
+<!-- PAGE 1: SURPRISE -->
+
+<section id="surprisePage" class="page active">
+
+    <div class="surprise-card">
+
+        <span class="decor-heart heart-one">♡</span>
+        <span class="decor-heart heart-two">♡</span>
+        <span class="decor-heart heart-three">♡</span>
+
+        <span class="decor-sparkle sparkle-one">✦</span>
+        <span class="decor-sparkle sparkle-two">✦</span>
+
+        <div class="surprise-content">
+
+            <div class="surprise-small">
+                A LITTLE SURPRISE FOR YOU
+            </div>
+
+            <h1 class="surprise-title">
+                SATYA PRAKASH<br>
+                GARU<br>
+                HAPPY WEDDING<br>
+                ANNIVERSARY
+            </h1>
+
+            <div class="surprise-message">
+                Made with all my love 💗
+            </div>
+
+            <button class="click-button" onclick="openMemories()">
+                CLICK THIS 💗
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: MEMORIES -->
+
+<section id="memoriesPage" class="page">
+
+    <div class="container">
 
         <header>
             <div class="eyebrow">OUR JOURNEY TOGETHER</div>
@@ -343,13 +548,6 @@ h1 {
                 Every memory becomes special because you are in it. ❤️
             </div>
         </header>
-
-        <div class="music-player">
-            <button class="music-button" id="musicButton"
-                    onclick="toggleMusic()">
-                🎵 Play Music ❤️
-            </button>
-        </div>
 
         <section class="gallery">
 
@@ -444,15 +642,20 @@ h1 {
             ♡ 23 • 11 • 2023 ♡
         </div>
 
-        <button class="letter-button" onclick="showLetter()">
+        <button class="action-button" onclick="openLetter()">
             Read My Letter ❤️
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PAGE 3: LOVE LETTER -->
-    <section id="letterPage" class="page">
+<!-- PAGE 3: LOVE LETTER -->
+
+<section id="letterPage" class="page">
+
+    <div class="container">
 
         <div class="eyebrow">A LETTER FROM MY HEART</div>
 
@@ -539,82 +742,123 @@ h1 {
             ♡ 23 • 11 • 2023 ♡
         </div>
 
-        <button class="back-button" onclick="showMemories()">
+        <button class="action-button" onclick="openMemories()">
             ← Back to Our Memories
         </button>
 
-    </section>
+    </div>
 
-</div>
+</section>
+
+
+<!-- MUSIC BUTTON -->
+
+<button id="musicButton"
+        class="music-control"
+        onclick="toggleMusic()"
+        style="display:none">
+    🎵 Play Music ❤️
+</button>
 
 
 <script>
 
-/* SAME MUSIC PLAYER FOR BOTH SECTIONS */
+/* ONE MUSIC PLAYER FOR ALL PAGES */
 
 const song = document.getElementById("loveSong");
 const musicButton = document.getElementById("musicButton");
+
+
+/* SHOW PAGE */
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    musicButton.style.display =
+        pageId === "surprisePage" ? "none" : "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* PAGE 1 TO PAGE 2 */
+
+function openMemories() {
+
+    showPage("memoriesPage");
+
+    if (song.paused) {
+
+        song.play()
+        .then(updateMusicButton)
+        .catch(error => {
+            console.log("Music playback error:", error);
+            musicButton.textContent = "🎵 Tap to Play Music ❤️";
+        });
+
+    }
+}
+
+
+/* PAGE 2 TO PAGE 3 */
+
+function openLetter() {
+
+    showPage("letterPage");
+
+    // Music continues without restarting.
+}
+
+
+/* MUSIC PLAY / PAUSE */
 
 function toggleMusic() {
 
     if (song.paused) {
 
         song.play()
-        .then(() => {
-            musicButton.innerHTML = "⏸ Pause Music ❤️";
-        })
+        .then(updateMusicButton)
         .catch(error => {
             console.log("Music error:", error);
-            alert("Please check your music file ♥️.mp3");
+
+            alert(
+                "Please check that ♥️.mp3 is uploaded in the same GitHub folder as index.html."
+            );
         });
 
     } else {
 
         song.pause();
-        musicButton.innerHTML = "🎵 Play Music ❤️";
+        updateMusicButton();
 
     }
-}
-
-/* Change page WITHOUT reloading the website */
-
-function showLetter() {
-
-    document.getElementById("memoriesPage").classList.remove("active");
-
-    document.getElementById("letterPage").classList.add("active");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
 
 }
 
-function showMemories() {
 
-    document.getElementById("letterPage").classList.remove("active");
+/* UPDATE MUSIC BUTTON */
 
-    document.getElementById("memoriesPage").classList.add("active");
+function updateMusicButton() {
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    musicButton.textContent = song.paused
+        ? "🎵 Play Music ❤️"
+        : "⏸ Pause Music ❤️";
 
 }
 
-/* Keep music button status updated */
+song.addEventListener("play", updateMusicButton);
+song.addEventListener("pause", updateMusicButton);
 
-song.addEventListener("play", () => {
-    musicButton.innerHTML = "⏸ Pause Music ❤️";
-});
 
-song.addEventListener("pause", () => {
-    musicButton.innerHTML = "🎵 Play Music ❤️";
-});
-
-/* Falling rose petals */
+/* FALLING ROSE PETALS */
 
 function createPetal() {
 
@@ -640,7 +884,7 @@ function createPetal() {
 
 }
 
-setInterval(createPetal, 300);
+setInterval(createPetal, 450);
 
 </script>
 
